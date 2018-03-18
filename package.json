@@ -1,8 +1,8 @@
 {
   "name": "autolog",
   "private": true,
-  "version": "0.0.0",
-  "description": "Auto Screenshot tool",
+  "version": "0.1.0",
+  "description": "ブラウザ内のイベントを検知して、その都度スクリーンショットを自動で撮影します。 撮影したスクリーンショットは時刻やURL、メモと共にタイムラインとしてまとめられ、レポートとして保存することが可能です。",
   "scripts": {
     "start": "npm run dev:chrome",
     "build": "npm run build:chrome",
