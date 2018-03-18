@@ -1,0 +1,18 @@
+{
+  "appName": {
+    "message": "autolog",
+    "description": "The name of the application"
+  },
+  "appShortName": {
+    "message": "autolog",
+    "description": "The short_name (maximum of 12 characters recommended) is a short version of the app's name."
+  },
+  "appDescription": {
+    "message": "Auto Screenshot tool",
+    "description": "The description of the application"
+  },
+  "browserActionTitle": {
+    "message": "autolog",
+    "description": "The title of the browser action button"
+  }
+}
