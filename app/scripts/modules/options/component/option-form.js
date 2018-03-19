@@ -64,7 +64,7 @@ module.exports = function(dao) {
             :top="true"
             v-model="snackbar"
             >
-            Saved
+            {{snackbarMessage}}
             <v-btn flat color="pink" @click.native="snackbar = false">Close</v-btn>
           </v-snackbar>
 
@@ -87,7 +87,7 @@ module.exports = function(dao) {
         data: {
             config : {
                 listeners:[]
-            },snackbar:false,hasError:false,errorInfo:''            
+            },snackbar:false,snackbarMessage:'',hasError:false,errorInfo:''            
         },
         methods: {
             onClickAdd() {
@@ -100,6 +100,7 @@ module.exports = function(dao) {
             onClickSave() {
                 dao.update(this.createModel()).then(()=>{
                     this.snackbar = true;
+                    this.snackbarMessage = 'saved.';
                 });
             },
             createModel() {
@@ -131,6 +132,8 @@ module.exports = function(dao) {
                     var jsonString = loadedEvent.target.result;
                     try {
                         this.config = JSON.parse(jsonString);
+                        this.snackbar = true;
+                        this.snackbarMessage = 'imported.';
                     } catch (exception) {
                         console.error(exception,jsonString);
                         this.hasError = true;
