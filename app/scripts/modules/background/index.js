@@ -68,6 +68,7 @@ var BackGroundService = {
     onShotRequest(request,sender,sendResponse) {
         var fromTabId = sender.tab.id;
         this.onShotRequestCommon(request.message,fromTabId,sendResponse);
+        return true;
     },
     onShotRequestCommon(message,fromTabId,sendResponse) {
         if(!this.managedTabMap[fromTabId]){
@@ -131,12 +132,11 @@ var BackGroundService = {
             }).then(set=>{
                 this.managedTabMap[tabId] = set.openTabId;
                 this.blobUrlMap[set.openTabId] = set.blobUrl;
+                chrome.tabs.sendMessage(tabId,{type:'activate'},(res)=>{
+                    console.log('tab is successfully activated.',tab);
+                });
                 return {activated:true};
             });
-
-            chrome.tabs.sendMessage(tabId,{type:'activate'},(res)=>{
-                console.log('tab is successfully activated.',tab);
-            })
         });
     },
 
