@@ -17,6 +17,7 @@ var component = {
       :headers="headers"
       :items="items"
       :search="search"
+      :rows-per-page-items="[30,{text:'All',value:-1}]"
     >
       <template slot="items" slot-scope="props">
         <td>
