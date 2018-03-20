@@ -45,10 +45,10 @@ var ContentScriptService = {
 
     },
     getName(listenerConfig,target) {
-        if(listenerConfig.name.length > 0) {
+        if(listenerConfig.name && listenerConfig.name.length > 0) {
             return listenerConfig.name;
         }
-        if(listenerConfig.nameSelector.length > 0) {
+        if(listenerConfig.nameSelector && listenerConfig.nameSelector.length > 0) {
             return $(target).xPath(listenerConfig.nameSelector).text();
         }
         
