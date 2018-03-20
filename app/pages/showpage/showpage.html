@@ -6,6 +6,18 @@
   <link rel="stylesheet" type="text/css" href="../../styles/showpage.css">
   <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
   <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <style>
+    /** 静的HTMLとして保存したときにスタイルが失われる */
+    .item-hidden img{
+    display:none;
+  }
+    .item-hidden-text{
+      display:none;
+  }
+    .item-hidden .item-hidden-text{
+      display:inherit;
+    }
+  </style>
 </head>
 <body>
   <div id="app">

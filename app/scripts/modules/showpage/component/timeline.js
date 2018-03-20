@@ -58,7 +58,19 @@ var component = {
           <img style="width:800px;" :src="props.item.src"></img>
         </div>
         </td>
-        <td class="text-xs-left" v-show="props.item.useFlg || !hideMode">{{ props.item.title }}</td>
+        <td class="text-xs-left" v-show="props.item.useFlg || !hideMode">
+        <v-edit-dialog
+        :return-value.sync="props.item.title"
+        lazy
+      > {{ props.item.title }}
+        <v-text-field
+          slot="input"
+          label="Edit"
+          v-model="props.item.title"
+          single-line
+        ></v-text-field>
+      </v-edit-dialog>
+        </td>
         <td class="text-xs-left" v-show="props.item.useFlg || !hideMode">
         <v-edit-dialog
         :return-value.sync="props.item.log"
