@@ -15,6 +15,8 @@ module.exports = function(Messenger) {
                 <v-text-field
                 label="Quick Memo"
                 v-model="memo"
+                autofocus
+                @keyup.enter="onClickLog"
                 ></v-text-field>
                 <v-btn flat @click="onClickLog">Take a log</v-btn>
             </v-container>

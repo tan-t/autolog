@@ -29,14 +29,17 @@ var CaptureService = {
         var ctx = canvas.getContext('2d');
         ctx.drawImage(video,0,0);
         var dataURL = canvas.toDataURL('image/webp');
-        var item =  _.extend({src:dataURL},request.message);
-        console.log(item);
+        var item =  extendItem({src:dataURL},request.message);
         this.$app_.items.push(item);
         sendResponse({message:'shot'});
     },
     log(request,sender,sendResponse) {
-        var item = _.extend({},request.message);
+        var item = extendItem({},request.message);
         this.$app_.items.push(item);
         sendResponse({message:'log'});
     }
+}
+
+const extendItem = function(baseObject,requestMessage) {
+    return _.extend(baseObject,requestMessage,{useFlg:true});
 }
