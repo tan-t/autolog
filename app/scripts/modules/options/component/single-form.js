@@ -34,7 +34,17 @@ var component = {
     hint="relative XPath from selected element (like '..')"
     @input="onInput"
     ></v-text-field>
+    <div>
     <h3 class="text-xs-left"> name selector => {{absoluteNameSelector}} </h3>
+    <div class="input-group__details"></div>
+    </div>
+
+    <v-checkbox
+    label="temporarily unlisten"
+    v-model="value.unlisten"
+    ></v-checkbox>
+
+
     </v-form>
     `,
     props : ['value'],

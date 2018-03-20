@@ -2,7 +2,7 @@ module.exports = {
     load() {
     return new Promise((resolve,reject)=>{
             chrome.storage.sync.get(DEFAULT_CONFIG,(config)=>{
-            resolve(config);
+            resolve(this.complement(config));
             });
         });
     },
@@ -13,6 +13,13 @@ module.exports = {
                 resolve();
             });
         });
+    },
+    complement(config) {
+        config.listeners.forEach(listener => {
+            listener.unlisten = ( listener.unlisten === true );
+        });
+
+        return config;
     }
 };
 
@@ -22,7 +29,8 @@ const DEFAULT_CONFIG = {
          selector:'',
          event:'',
          nameSelector:'',
-         title:'無題のイベント'
+         title:'無題のイベント',
+         unlisten : false
     }
  ],
  noStyle:false

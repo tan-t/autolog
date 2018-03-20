@@ -41,7 +41,7 @@ module.exports = function(dao) {
                     <v-subheader>Listeners</v-subheader>
                     <v-expansion-panel expand>
                     <v-expansion-panel-content v-for="item in config.listeners" :key="item.id">
-                      <div slot="header">{{item.title}}</div>
+                      <div slot="header">{{item.title}} <v-spacer></v-spacer> {{ item.unlisten ? "unlistening" : "listening" }}</div>
                       <v-card class="elevation-1" >
                           <v-card-text>
                               <single-form :value="item" @input="value => {item = value}"></single-form>
